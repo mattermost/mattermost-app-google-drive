@@ -1,0 +1,23 @@
+{
+  "name": "mattermost-app-google-drive",
+  "version": "1.0.0",
+  "description": "A Google Drive app for Mattermost.",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo TODO",
+    "lint": "echo TODO",
+    "check-types": "echo TODO",
+    "test": "echo TODO"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mickmister/mattermost-app-google-drive.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mickmister/mattermost-app-google-drive/issues"
+  },
+  "homepage": "https://github.com/mickmister/mattermost-app-google-drive#readme"
+}

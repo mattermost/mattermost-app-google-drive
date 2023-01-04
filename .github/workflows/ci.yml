@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Install modules
+      run: npm ci
+    - name: Run ESLint
+      run: npm run lint
+
+  types:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Install modules
+      run: npm ci
+    - name: Check Types
+      run: npm run check-types
+
+  dist:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Install modules
+      run: npm ci
+    - name: Build bundle
+      run: make dist
+    - name: Validate bundle
+      run: go run github.com/mattermost/mattermost-plugin-apps/cmd/appsctl@5f80e8eaafb4457fcdd76793fa852692e923eb55 aws validate dist/bundle.zip -v
+
+  dist-dev:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Install modules
+      run: npm ci
+    - name: Build dev bundle
+      run: make dist-dev
+    - name: Validate bundle
+      run: go run github.com/mattermost/mattermost-plugin-apps/cmd/appsctl@5f80e8eaafb4457fcdd76793fa852692e923eb55 aws validate dist/*.zip -v
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Install modules
+      run: npm ci
+    - name: Run Tests
+      run: npm test
