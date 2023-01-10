@@ -1,0 +1,198 @@
+{
+  "general": {
+    "google-error": "Google falló: ",
+    "mattermost-error": "Mattermost falló: ",
+    "validation-user": {
+			"system-admin": "Error: Este comando esta únicamente disponible a usuarios Mattermost System Admin",
+      "oauth-user": "Error: No has vinculado tu cuenta de Google Drive. La necesitas para realizar esta acción",
+			"not-provided": "El usuario no fue provisto"
+		}
+  },
+  "bindings-descriptions": {
+    "bindings": "Administrar Google Drive",
+    "help": "Mostrar ayuda sobre la App",
+    "configure": "Configurar el Cliente de Google",
+    "connect": "Conectar con tu cuenta de Google",
+    "disconnect": "Desconectar tu cuenta de Google",
+    "notification": "Detener o encender las notificaciones sobre los comentarios",
+    "notification-start": "Encender las notificaciones sobre los comentarios",
+    "notification-stop": "Detener las notificaciones sobre los comentarios",
+    "create": "Crear y compartir con el canal un nuevo archivo Google Drive",
+    "create-document": "Crear nuevo Google Docs en Drive",
+    "create-slide": "Crear nuevo Google Slide en Drive",
+    "create-sheet": "Crear nuevo Google Sheets en Drive",
+    "save-file": "Subir archivos a Drive"
+  },
+  "help-binding": {
+    "title": "Plugin Mattermost Google Drive - Ayuda",
+    "descriptions": {
+      "help": "Ejecutar el comando de ayuda de la Google Drive App, checa el resto de la [documentación]({{homepageUrl}})",
+      "configure": "Configurar el Cliente de Google",
+      "connect": "Conectar con tu cuenta de Google",
+      "disconnect": "Desconectar tu cuenta de Google",
+      "notification": "Detener o encender las notificaciones sobre los comentarios",
+      "create": "Crear y compartir con el canal un nuevo archivo Google Drive"
+    }
+  },
+  "configure-binding": {
+    "form": {
+      "title": "Configurar el cliente de Google Drive",
+      "header": "¿Cómo crear un nuevo cliente en la consola de [Google Drive]({{homepageUrl}}#configuration)?",
+      "fields": {
+        "clientID": {
+          "title": "Client ID",
+          "description": "Integración con el Client ID de Google"
+        },
+        "clientSecret": {
+          "title": "Client Secret",
+          "description": "Integración con el Client Secret de Google"
+        },
+        "serviceAccount": {
+          "title": "Configuración de webhook",
+          "description": "Qué tipo de autenticación se utilizará al momento de manejar las notificaciones",
+          "values": {
+            "doNotUse": "No usar una cuenta de servicio",
+            "useServiceAccount": "Sí usar una cuenta de servicio",
+            "useAPIKey": "Usar API Key"
+          }
+        },
+        "apiKey": {
+          "title": "API Key",
+          "description": "API Key de Google para Mattermost, no hay necesidad si se hace uso del servicio"
+        },
+        "serviceAccountJSON": {
+          "title": "Service Account (JSON)",
+          "description": "Uso de una cuenta de servicio para la App. Por favor, abrir el archivo JSON descargado con las credenciales y pegarlo en la siguiente casilla"
+        }
+      }
+    },
+    "response": {
+      "success": "¡Se ha actualizado correctamente la configuración del Cliente de Google!"
+    },
+    "error": {
+      "system-admin": "Error: Este comando esta únicamente disponible a usuarios Mattermost System Admin"
+    }
+  },
+  "connect-binding": {
+    "response": {
+      "generateLink": "Sigue este {{ link }} para conectar tu Mattermost con tu cuenta de Google.",
+      "alreadyLoggedIn": "Error. Ya se encuentra con una sesión activa.",
+      "codeNotProvided": "Mala petición. El parámetro code no viene en la respuesta",
+      "success": "¡Se ha conectado correctamente a tu cuenta de Google!"
+    }
+  },
+  "disconnect-binding": {
+    "response": {
+      "noSession": "Imposible de desconectar. No se encuentra sesión activa.",
+      "success": "¡Se ha desconectado correctamente a tu cuenta de Google!"
+    }
+  },
+  "notifications-binding": {
+    "already-disabled": "Google notifications are already disabled",
+    "response": {
+      "disabled": "Las notificaciones de Google se han detenido",
+      "enabled": "Las notificaciones de Google se han encendido"
+    }
+  },
+  "create-binding": {
+    "form": {
+      "title": "Crear un Documento en Google",
+      "fields": {
+        "title": {
+          "title": "Título"
+        },
+        "message": {
+          "title": "Mensaje",
+          "placeholder": "Agrega un mensaje que se mostrará al compartit el archivo"
+        },
+        "fileAccess": {
+          "title": "Acceso al archivo",
+          "description": "Selecciona quién podrá acceder al archivo",
+          "options": {
+            "notShare": "Mantener privado",
+            "sAView": "Cualquiera con el link puede ver",
+            "sAComment": "Cualquiera con el link puede comentar",
+            "sAEdit": "Cualquiera con el link puede editar",
+            "sCView": "Miembros del canal pueden ver",
+            "sCComment": "Miembros del canal pueden comentar",
+            "sCEdit": "Miembros del canal pueden editar"
+          }
+        },
+        "share": {
+          "title": " ",
+          "hint": "Compartir en este canal"
+        }
+      }
+    },
+    "response": {
+      "footer": "Google Drive para Mattermost | {{ date }}"
+    },
+    "docs": {
+      "title": "Crear un Documento en Google",
+      "success": "¡El archivo Google Doc {{ file }} fue creado!"
+    },
+    "slides": {
+      "title": "Crear una Presentación en Google",
+      "success": "¡El archivo Google Slides {{ file }} fue creado!"
+    },
+    "sheets": {
+      "title": "Crear una Hoja de Cálculo en Google",
+      "success": "¡El archivo Google Sheets {{ file }} fue creado!"
+    }
+  },
+  "comments": {
+    "file-icon": "Icono de archivo",
+    "add": {
+      "text-mentioned": "{{ userDisplay }} te mencionó en {{ image }} {{ link }}",
+      "text-comment": "{{ userDisplay }} ha comentado en {{ image }} {{ link }}"
+    },
+    "reply": {
+      "comment": "{{ userDisplay }}  respondió a un comentario en {{ image }} {{ link }}",
+      "previous": "Respuesta anterior:"
+    },
+    "resolved": {
+      "message": "{{ userDisplay }} marcó un hilo como resuelto en {{ image }} {{ link }}"
+    },
+    "reopened": {
+      "message": "{{ userDisplay }} reabrió un hilo en {{ image }} {{ link }}",
+      "comment": "Comentario original:"
+    },
+    "delete": {
+      "messsage": "Se eliminó un comentario en {{ image }} {{ link }}"
+    },
+    "delete-reply": {
+      "message": "Se eliminó una respuesta de comentario en {{ image }} {{ link }}"
+    },
+    "new": {
+      "label": "Responder al comentario"
+    },
+    "comment-reply": {
+      "open-form-reply": {
+        "title": "Responder al comentario",
+        "label": "Respuesta de mensaje",
+        "description": "Agregue un mensaje que se publicará como hilo en la publicación seleccionada"
+      }
+    },
+    "permission-change": {
+      "message": "{{ userDisplay }} compartió un artículo contigo"
+    },
+    "manage-reply-comment": {
+      "message": "Respondiste a este comentario con"
+    }
+  },
+  "upload-google": {
+    "confirmation-call": {
+      "error-upload": "La publicación seleccionada no tiene ningún archivo para cargar",
+      "label-modal": "Selecciona los archivos que te gustaría subir a Google Drive",
+      "title": "Subir a Google Drive"
+    },
+    "confirmation-submit": {
+      "footer": "Google Drive para Mattermost | {{ date }}",
+      "multiple-files": "¡Archivo subido a Google Drive!",
+      "single-file": "¡Archivos subidos a Google Drive!"
+    }
+  },
+  "install": {
+    "message": "Para terminar de configurar la aplicación Google Drive, lea la sección [Inicio rápido]( {{ homepageUrl }} #quick-start) del LÉAME."
+  }
+}

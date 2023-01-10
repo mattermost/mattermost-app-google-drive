@@ -1,0 +1,199 @@
+{
+	"general": {
+		"google-error": "Google failed: ",
+		"mattermost-error": "Mattermost failed: ",
+		"validation-user": {
+			"system-admin": "Error: This command is only available for Mattermost System Admin",
+			"oauth-user": "Error: You haven't linked your Google Drive account. You need it to perform this action",
+			"not-provided": "Not acting user provided"
+		}
+	},
+	"bindings-descriptions": {
+		"bindings": "Manage Google Drive",
+		"help": "Show Google Drive Help",
+		"configure": "Setup Google Client",
+		"connect": "Connect your Google account",
+		"disconnect": "Disconnect from your Google account",
+		"notification": "Stop or start getting notifications about comments",
+		"notification-start": "Start getting notified about Google Drive comments",
+		"notification-stop": "Stop getting notified about Google Drive comments",
+		"create": "Create and share with the channel new Google Drive files",
+		"create-document": "Create a document with Google Drive",
+		"create-slide": "Create a presentation with Google Drive",
+		"create-sheet": "Create a spreadsheet with Google Drive",
+		"save-file": "Upload file to Drive"
+	},
+	"help-binding": {
+		"title": "Mattermost Google Drive Plugin - Help",
+		"descriptions": {
+			"help": "Launch the Google Drive plugin command line help syntax, check out the [documentation]({{homepageUrl}})",
+			"configure": "Setup Google Client",
+			"connect": "Connect your Google account",
+			"disconnect": "Disconnect from your Google account",
+			"notification": "Stop or start getting notifications about comments",
+			"create": "Create and share with the channel new Google Drive files"
+		}
+	},
+	"configure-binding": {
+		"form": {
+			"title": "Configure Google Drive Client",
+			"header": "Create a new [Google Drive]({{homepageUrl}}#configuration) Client.",
+			"fields": {
+				"clientID": {
+					"title": "Client ID",
+					"description": "API integration Google Client ID"
+				},
+				"clientSecret": {
+					"title": "Client Secret",
+					"description": "API integration Google Client Secret"
+				},
+				"serviceAccount": {
+					"title": "Service Account",
+					"description": "What kind of Google service account to use to process incoming change notifications",
+					"values": {
+						"doNotUse": "Do not use a Service Account",
+						"useServiceAccount": "Use a Google Service Account",
+						"useAPIKey": "Use a Google API Key"
+					}
+				},
+				"apiKey": {
+					"title": "API Key",
+					"description": "Google API Key for the Mattermost App, no need if using the serv."
+				},
+				"serviceAccountJSON": {
+					"title": "Service Account (JSON)",
+					"description": "Google Service Account for the Mattermost App. Please open the downloaded credentials JSON file, and paste its contents here."
+				}
+			}
+		},
+		"response": {
+			"success": "Successfully updated Google Client configuration!"
+		},
+		"error": {
+			"system-admin": "Error: This command is only available for Mattermost System Admin"
+		}
+	},
+	"connect-binding": {
+		"response": {
+			"generateLink": "Follow this {{ link }} to connect Mattermost to your Google Account.",
+			"alreadyLoggedIn": "You are already logged into Google",
+			"codeNotProvided": "Bad Request: code param not provided",
+			"success": "You have successfully connected your Google account!"
+		}
+	},
+	"disconnect-binding": {
+		"response": {
+			"noSession": "Impossible to disconnect. There is no active session",
+			"success": "You have successfully disconnected your Google account!"
+		}
+	},
+	"notifications-binding": {
+		"already-disabled": "Google notifications are already disabled",
+		"response": {
+			"disabled": "Google notifications are disabled!",
+			"enabled": "Google notifications are enabled!"
+		}
+	},
+	"create-binding": {
+		"form": {
+			"title": "Create a document in Google",
+			"fields": {
+				"title": {
+					"title": "Title"
+				},
+				"message": {
+					"title": "Message",
+					"placeholder": "Add a message, if you'd like."
+				},
+				"fileAccess": {
+					"title": "File Access",
+					"description": "Select who has access to the file",
+					"options": {
+						"notShare": "Keep file private",
+						"sAView": "Anyone with the link can view",
+						"sAComment": "Anyone with the link can comment",
+						"sAEdit": "Anyone with the link can edit",
+						"sCView": "Member of the channel can view",
+						"sCComment": "Member of the channel can comment",
+						"sCEdit": "Member of the channel can edit"
+					}
+				},
+				"share": {
+					"title": " ",
+					"hint": "Share on this channel"
+				}
+			}
+		},
+		"response": {
+			"footer": "Google Drive for Mattermost | {{ date }}"
+		},
+		"docs": {
+			"title": "Create a Google Document",
+			"success": "New Google Doc {{ file }} created!"
+		},
+		"slides": {
+			"title": "Create a Google Presentation",
+			"success": "New Google Slides {{ file }} created!"
+		},
+		"sheets": {
+			"title": "Create a Google Spreadsheet",
+			"success": "New Google Sheets {{ file }} created!"
+		}
+	},
+	"comments": {
+		"file-icon": "File icon",
+		"add": {
+			"text-mentioned": "{{ userDisplay }} mentioned you in {{ image }} {{ link }}",
+			"text-comment": "{{ userDisplay }} commented on {{ image }} {{ link }}"
+		},
+		"reply": {
+			"comment": "{{ userDisplay }} replied to a comment in {{ image }} {{ link }}",
+			"previous": "Previous reply:"
+		},
+		"resolved": {
+			"message": "{{ userDisplay }} marked a thread as resolved in {{ image }} {{ link }}"
+		},
+		"reopened": {
+			"message": "{{ userDisplay }} reopened a thread in {{ image }} {{ link }}",
+			"comment": "Original comment:"
+		},
+		"delete": {
+			"messsage": "A comment was deleted in {{ image }} {{ link }}"
+		},
+		"delete-reply": {
+			"message": "A comment reply was deleted in {{ image }} {{ link }}"
+		},
+		"new": {
+			"label": "Reply to comment"
+		},
+		"permission-change": {
+			"message": "{{ userDisplay }} shared an item with you"
+		},
+		"comment-reply": {
+			"open-form-reply": {
+				"title": "Reply to comment",
+				"label": "Message response",
+				"description": "Add a message that will be posted as thread on the selected post"
+			}
+		},
+		"manage-reply-comment": {
+			"message": "You replied to this comment with"
+		},
+		"text-comment": "comments.text-comment"
+	},
+	"upload-google": {
+		"confirmation-call": {
+			"error-upload": "Selected post doesn't have any files to be uploaded",
+			"label-modal": "Select the files you'd like to upload to Google Drive",
+			"title": "Upload to Google Drive"
+		},
+		"confirmation-submit": {
+			"footer": "Google Drive for Mattermost | {{ date }}",
+			"multiple-files": "File uploaded to Google Drive!",
+			"single-file": "Files uploaded to Google Drive!"
+		}
+	},
+	"install": {
+		"message": "To finish configuring the Google Drive app please read the [Quick Start]( {{ homepageUrl }} #quick-start) section of the README"
+	}
+}

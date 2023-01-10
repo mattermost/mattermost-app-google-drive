@@ -1,0 +1,55 @@
+{
+   "app_id": "google-drive",
+   "version": "1.0.0",
+   "homepage_url": "https://github.com/mattermost/mattermost-app-google-drive#readme",
+   "display_name": "Google Drive",
+   "description": "Google Drive App for Mattermost",
+   "icon": "drive.png",
+   "on_install": {
+      "expand": {
+         "app": "all",
+         "acting_user_access_token": "all"
+      },
+      "path": "/install"
+   },
+   "bindings": {
+      "path": "/bindings",
+      "expand": {
+         "acting_user": "all",
+         "oauth2_app": "all",
+         "oauth2_user": "all",
+         "locale": "all"
+      }
+   },
+   "requested_permissions": [
+      "act_as_bot",
+      "act_as_user",
+      "remote_webhooks",
+      "remote_oauth2"
+   ],
+   "requested_locations": [
+      "/command",
+      "/channel_header",
+      "/post_menu"
+   ],
+   "http": {
+      "root_url": "https://mattermost-bussiness-dev.ancient.mx"
+   },
+   "remote_webhook_auth_type": "secret",
+   "on_remote_webhook": {
+      "path": "/webhook",
+      "expand": {
+         "oauth2_app": "all"
+      }
+   },
+   "aws_lambda": {
+        "functions": [
+            {
+                "path": "/",
+                "name": "bundle",
+                "handler": "bundle/index.handler",
+                "runtime": "nodejs16.x"
+            }
+        ]
+    }
+}

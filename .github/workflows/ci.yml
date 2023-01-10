@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - 'ci/**'
+    - 'master'
+    - 'develop'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install modules
+      run: npm i
+    - name: Run ESLint
+      run: npm run lint
+
+  types:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install modules
+      run: npm i
+    - name: Check Types
+      run: npm run check-types
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install modules
+      run: npm i
+    - name: Build Server
+      run: npm run build
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install modules
+      run: npm i
+    - name: Run Tests
+      run: npm test
